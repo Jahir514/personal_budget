@@ -7,6 +7,7 @@ export interface IIncome extends Document {
   title: string;
   category: ObjectId;
   amount: number;
+  date: Date;
   createdAt?: Date;
   updateAt?: Date;
 }
@@ -19,12 +20,14 @@ export interface ICreateIncome {
   title: string;
   category: ObjectId;
   amount: number;
+  date: Date;
 }
 //income  update interface
 export interface IUpdateIncome {
   title?: string;
   category?: ObjectId;
   amount?: number;
+  date?: Date;
 }
 //-----------------------------------------
 //---------Response Realated Interfaces--------

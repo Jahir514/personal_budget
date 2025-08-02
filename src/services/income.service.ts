@@ -12,14 +12,15 @@ import { AppError } from '../utils/AppError';
 
 //Income create service
 const createIncome = async (data: ICreateIncome): Promise<ICreateIncomeResponse> => {
-  const { title, category, amount } = data;
-  if (!title || !category || !amount) throw new AppError('Please provide correct Income information.', 400);
+  const { title, category, amount, date } = data;
+  if (!title || !category || !amount || !date) throw new AppError('Please provide correct Income information.', 400);
 
   //create ingridents instance
   const IncomeInfo = {
     title,
     category,
     amount,
+    date,
   };
   //save to database
   const income = new Income(IncomeInfo);

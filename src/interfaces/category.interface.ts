@@ -6,8 +6,7 @@ import { Document, ObjectId } from 'mongoose';
 export interface ICategory extends Document {
   serialNo: number;
   title: string;
-  groupType: string;
-  group: ObjectId;
+  isIncome: boolean;
   createdAt?: Date;
   updateAt?: Date;
 }
@@ -19,15 +18,13 @@ export interface ICategory extends Document {
 export interface ICreateCategory {
   serialNo: number;
   title: string;
-  groupType: string;
-  group: ObjectId;
+  isIncome: boolean;
 }
 // category update interface
 export interface IUpdateCategory {
   serialNo?: number;
   title?: string;
-  groupType?: string;
-  group?: ObjectId;
+  isIncome?: boolean;
 }
 //-----------------------------------------
 //---------Response Realated Interfaces--------

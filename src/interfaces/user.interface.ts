@@ -44,7 +44,7 @@ export interface IRegisterUser {
 }
 //user login interface
 export interface ILoginUser {
-  emailOrPhone: string;
+  email: string;
   password: string;
 }
 //-----------------------------------------

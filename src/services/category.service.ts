@@ -12,7 +12,7 @@ import { AppError } from '../utils/AppError';
 
 // category create service
 const createCategory = async (data: ICreateCategory): Promise<ICreateCategoryResponse> => {
-  const { title } = data;
+  const { title, isIncome } = data;
   if (!title) throw new AppError('Please provide a  category title', 400);
   //create serial no based on last  category serial no
   //if no  category then serial start from 1000
@@ -29,6 +29,7 @@ const createCategory = async (data: ICreateCategory): Promise<ICreateCategoryRes
   const categoryInfo = {
     title,
     serialNo,
+    isIncome,
   };
   //save to database
   const category = new Category(categoryInfo);

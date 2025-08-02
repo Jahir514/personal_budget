@@ -13,15 +13,9 @@ const categorySchema = new Schema<ICategory>(
       unique: true,
       trim: true,
     },
-    groupType: {
-      type: String,
+    isIncome: {
+      type: Boolean,
       required: true,
-      enum: ['Income', 'Expense'],
-    },
-    group: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      refPath: 'groupType',
     },
   },
   {

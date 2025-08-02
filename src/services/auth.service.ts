@@ -98,10 +98,10 @@ const register = async (userData: IRegisterUser): Promise<IRegisterUserResponse>
 
 //user login service
 const login = async (data: ILoginUser): Promise<ILoginUserResponse> => {
-  const { emailOrPhone, password } = data;
-  let loginField = emailOrPhone;
+  const { email, password } = data;
+  let loginField = email;
   //check for empty fields
-  if (!emailOrPhone || !password) {
+  if (!email || !password) {
     throw new AppError('Email and Password is required', 400);
   }
   //check valid phone number
