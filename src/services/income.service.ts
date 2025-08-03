@@ -40,7 +40,8 @@ const createIncome = async (data: ICreateIncome): Promise<ICreateIncomeResponse>
 
 //all Income get service
 const getAllIncome = async (): Promise<IGetIncomeResponse> => {
-  const income: IIncome[] = await Income.find();
+  const income: IIncome[] = await Income.find().populate('category', 'title');
+
   if (income.length == 0) {
     return {
       message: 'No income found.',
@@ -107,7 +108,7 @@ const deleteIncome = async (incomeId: string): Promise<IDeleteIncomeResponse> =>
   if (deletedIncome) {
     return {
       success: true,
-      message: 'Successfully delete Income ',
+      message: 'Successfully delete Income. ',
     };
   } else {
     return {

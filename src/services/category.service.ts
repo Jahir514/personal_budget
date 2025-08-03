@@ -50,7 +50,7 @@ const createCategory = async (data: ICreateCategory): Promise<ICreateCategoryRes
 //all  category get service
 const getAllCategory = async (): Promise<IGetCategoryResponse> => {
   const category: ICategory[] = await Category.find();
-  if (Category.length == 0) {
+  if (category.length == 0) {
     return {
       message: 'No  category found.',
       category,
@@ -72,6 +72,22 @@ const getSingleCategory = async (categoryId: string): Promise<IGetCategoryRespon
     };
   } else {
     throw new AppError('No  category found.', 400);
+  }
+};
+
+//get catgory by income or expense service
+const getCategoryByIncomeExpense = async (isIncome: boolean): Promise<IGetCategoryResponse> => {
+  const category: ICategory[] | null = await Category.find({ isIncome: isIncome });
+  if (category.length == 0) {
+    return {
+      message: 'No  category found.',
+      category,
+    };
+  } else {
+    return {
+      message: '',
+      category,
+    };
   }
 };
 
@@ -130,4 +146,5 @@ export default {
   getSingleCategory,
   updateCategory,
   deleteCategory,
+  getCategoryByIncomeExpense,
 };
