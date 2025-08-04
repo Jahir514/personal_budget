@@ -3,6 +3,7 @@ import expenseRoutes from './expense.routes';
 import categoryRoutes from './category.routes';
 import incomeRoutes from './income.routes';
 import authRoutes from './auth.routes';
+import dashboardRoutes from './dashboard.routes';
 const router = Router();
 
 //all features route
@@ -14,5 +15,7 @@ router.use('/expense', expenseRoutes);
 router.use('/category', categoryRoutes);
 //income routes
 router.use('/income', incomeRoutes);
+//dashboard routes
+router.use('/dashboard', dashboardRoutes);
 
 export default router;
