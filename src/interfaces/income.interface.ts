@@ -43,18 +43,6 @@ export interface IGetIncomeResponse {
   message: string;
   income: null | IIncome | IIncome[];
 }
-//income summary get response interface
-export interface IGetIncomeSummaryResponse {
-  totalIncome: number;
-  last7DaysChart: {
-    date: Date;
-    amount: number;
-  }[];
-  categoryWise: {
-    category: String;
-    amount: number;
-  }[];
-}
 //income  update response interface
 export interface IUpdateIncomeResponse extends ICreateIncomeResponse {}
 //income  delete response interface
